@@ -1,0 +1,2 @@
+/usr/bin/ar qc libstudy_tracker.a CMakeFiles/study_tracker.dir/src/StudyTracker.cpp.o
+/usr/bin/ranlib libstudy_tracker.a

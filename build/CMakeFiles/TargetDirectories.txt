@@ -1,0 +1,6 @@
+/home/jovyan/Assignmets/AI-Project-StudyHrTracker/build/CMakeFiles/study_tracker.dir
+/home/jovyan/Assignmets/AI-Project-StudyHrTracker/build/CMakeFiles/study_app.dir
+/home/jovyan/Assignmets/AI-Project-StudyHrTracker/build/CMakeFiles/run_tests.dir
+/home/jovyan/Assignmets/AI-Project-StudyHrTracker/build/CMakeFiles/test.dir
+/home/jovyan/Assignmets/AI-Project-StudyHrTracker/build/CMakeFiles/edit_cache.dir
+/home/jovyan/Assignmets/AI-Project-StudyHrTracker/build/CMakeFiles/rebuild_cache.dir
