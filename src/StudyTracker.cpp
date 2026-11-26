@@ -2,8 +2,6 @@
 #include <fstream>
 #include <sstream>
 #include <stdexcept>
-// Study tracker functions will go here.
-
 
 StudyRecord parseRecord(string line) {
     stringstream ss(line);
@@ -16,4 +14,23 @@ StudyRecord parseRecord(string line) {
 
     record.hoursCompleted = stod(hours);
     return record;
+}
+
+vector<StudyRecord> loadRecords(string filename) {
+    ifstream file(filename);
+
+    if (!file.is_open())
+        throw runtime_error("Cannot open file: " + filename);
+
+    vector<StudyRecord> records;
+    string line;
+
+    getline(file, line); // Skip header
+
+    while (getline(file, line)) {
+        if (!line.empty())
+            records.push_back(parseRecord(line));
+    }
+
+    return records;
 }

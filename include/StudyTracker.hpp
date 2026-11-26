@@ -1,4 +1,3 @@
-
 #ifndef STUDY_TRACKER_HPP
 #define STUDY_TRACKER_HPP
 

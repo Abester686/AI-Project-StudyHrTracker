@@ -1,6 +1,6 @@
-
 #include <gtest/gtest.h>
 #include "StudyTracker.hpp"
+#include <stdexcept>
 
 TEST(StudyRecordTest, StoresHours) {
     StudyRecord student = {"Diego", "2026-10-05", 8};
@@ -15,4 +15,20 @@ TEST(StudyTrackerTest, ParseRecord) {
     EXPECT_EQ(record.name, "Diego");
     EXPECT_EQ(record.week, "2026-10-05");
     EXPECT_DOUBLE_EQ(record.hoursCompleted, 8.0);
+}
+
+
+TEST(StudyTrackerTest, LoadRecords) {
+    vector<StudyRecord> records =
+        loadRecords("../data/study_hours.csv");
+
+    EXPECT_EQ(records.size(), 30);
+}
+
+
+TEST(StudyTrackerTest, MissingFile) {
+    EXPECT_THROW(
+        loadRecords("nonexistent.csv"),
+        runtime_error
+    );
 }
