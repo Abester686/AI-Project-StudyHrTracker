@@ -136,3 +136,21 @@ TEST(StudyTrackerTest, UpdateNegativeHours) {
     EXPECT_DOUBLE_EQ(records[0].hoursCompleted, 8.0);
 }
 
+
+TEST(StudyTrackerTest, MissingHoursBelowRequirement) {
+    double missing = calculateMissingHours(6);
+
+    EXPECT_DOUBLE_EQ(missing, 4.0);
+}
+
+TEST(StudyTrackerTest, MissingHoursAtRequirement) {
+    double missing = calculateMissingHours(10);
+
+    EXPECT_DOUBLE_EQ(missing, 0.0);
+}
+
+TEST(StudyTrackerTest, MissingHoursAboveRequirement) {
+    double missing = calculateMissingHours(12);
+
+    EXPECT_DOUBLE_EQ(missing, 0.0);
+}

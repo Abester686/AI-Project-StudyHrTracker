@@ -76,3 +76,13 @@ bool updateHours(vector<StudyRecord>& records,
     return true;
 }
 
+
+double calculateMissingHours(double hoursCompleted) {
+    const double requiredHours = 10.0;
+
+    if (hoursCompleted >= requiredHours)
+        return 0.0;
+
+    return requiredHours - hoursCompleted;
+}
+
