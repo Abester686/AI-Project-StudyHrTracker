@@ -173,3 +173,34 @@ TEST(StudyTrackerTest, FineForNegativeHours) {
 
     EXPECT_DOUBLE_EQ(fine, 0.0);
 }
+
+
+TEST(StudyTrackerTest, LeaderboardTotals) {
+    vector<StudyRecord> records = {
+        {"Diego", "2026-10-05", 8},
+        {"Diego", "2026-10-12", 12}
+    };
+
+    auto board = getLeaderboard(records);
+
+    EXPECT_DOUBLE_EQ(board[0].second, 20.0);
+}
+
+TEST(StudyTrackerTest, LeaderboardRanking) {
+    vector<StudyRecord> records = {
+        {"Diego", "2026-10-05", 8},
+        {"Marco", "2026-10-05", 12}
+    };
+
+    auto board = getLeaderboard(records);
+
+    EXPECT_EQ(board[0].first, "Marco");
+}
+
+TEST(StudyTrackerTest, EmptyLeaderboard) {
+    vector<StudyRecord> records;
+
+    auto board = getLeaderboard(records);
+
+    EXPECT_TRUE(board.empty());
+}

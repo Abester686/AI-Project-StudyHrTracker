@@ -1,6 +1,7 @@
 #ifndef STUDY_TRACKER_HPP
 #define STUDY_TRACKER_HPP
 
+#include <utility>
 #include <string>
 #include <vector>
 
@@ -31,6 +32,10 @@ double calculateMissingHours(double hoursCompleted);
 
 
 double calculateFine(double missingHours);
+
+
+vector<pair<string, double>> getLeaderboard(
+    const vector<StudyRecord>& records);
 
 
 #endif

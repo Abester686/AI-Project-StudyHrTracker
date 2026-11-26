@@ -2,6 +2,8 @@
 #include <fstream>
 #include <sstream>
 #include <stdexcept>
+#include <algorithm>
+#include <map>
 
 StudyRecord parseRecord(string line) {
     stringstream ss(line);
@@ -96,3 +98,22 @@ double calculateFine(double missingHours) {
     return missingHours * finePerHour;
 }
 
+
+vector<pair<string, double>> getLeaderboard(
+    const vector<StudyRecord>& records) {
+
+    map<string, double> totals;
+
+    for (const StudyRecord& record : records)
+        totals[record.name] += record.hoursCompleted;
+
+    vector<pair<string, double>> leaderboard(
+        totals.begin(), totals.end());
+
+    sort(leaderboard.begin(), leaderboard.end(),
+         [](const auto& a, const auto& b) {
+             return a.second > b.second;
+         });
+
+    return leaderboard;
+}
