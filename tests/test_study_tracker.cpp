@@ -154,3 +154,22 @@ TEST(StudyTrackerTest, MissingHoursAboveRequirement) {
 
     EXPECT_DOUBLE_EQ(missing, 0.0);
 }
+
+
+TEST(StudyTrackerTest, FineForMissingHours) {
+    double fine = calculateFine(4);
+
+    EXPECT_DOUBLE_EQ(fine, 10.0);
+}
+
+TEST(StudyTrackerTest, FineForZeroHours) {
+    double fine = calculateFine(0);
+
+    EXPECT_DOUBLE_EQ(fine, 0.0);
+}
+
+TEST(StudyTrackerTest, FineForNegativeHours) {
+    double fine = calculateFine(-2);
+
+    EXPECT_DOUBLE_EQ(fine, 0.0);
+}

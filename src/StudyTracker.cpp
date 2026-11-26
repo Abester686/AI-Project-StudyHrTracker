@@ -86,3 +86,13 @@ double calculateMissingHours(double hoursCompleted) {
     return requiredHours - hoursCompleted;
 }
 
+
+double calculateFine(double missingHours) {
+    const double finePerHour = 2.50;
+
+    if (missingHours <= 0)
+        return 0.0;
+
+    return missingHours * finePerHour;
+}
+

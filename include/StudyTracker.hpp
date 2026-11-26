@@ -29,4 +29,8 @@ bool updateHours(vector<StudyRecord>& records, string name, string week, double 
 
 double calculateMissingHours(double hoursCompleted);
 
+
+double calculateFine(double missingHours);
+
+
 #endif
