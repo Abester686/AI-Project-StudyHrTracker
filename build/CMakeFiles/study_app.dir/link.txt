@@ -1,1 +1,0 @@
-/usr/bin/c++ CMakeFiles/study_app.dir/src/main.cpp.o -o study_app  libstudy_tracker.a 

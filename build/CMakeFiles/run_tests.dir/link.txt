@@ -1,1 +1,0 @@
-/usr/bin/c++ CMakeFiles/run_tests.dir/tests/test_study_tracker.cpp.o -o run_tests  libstudy_tracker.a /usr/lib/x86_64-linux-gnu/libgtest_main.a /usr/lib/x86_64-linux-gnu/libgtest.a 
