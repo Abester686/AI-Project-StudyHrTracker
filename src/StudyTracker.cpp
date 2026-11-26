@@ -45,3 +45,16 @@ int findRecord(const vector<StudyRecord>& records, string name, string week) {
     return -1;
 }
 
+
+bool addRecord(vector<StudyRecord>& records, StudyRecord newRecord) {
+
+    if (newRecord.name.empty() || newRecord.week.empty() ||
+        newRecord.hoursCompleted < 0)
+        return false;
+
+    if (findRecord(records, newRecord.name, newRecord.week) != -1)
+        return false;
+
+    records.push_back(newRecord);
+    return true;
+}

@@ -56,3 +56,39 @@ TEST(StudyTrackerTest, FindMissingRecord) {
 
     EXPECT_EQ(index, -1);
 }
+
+
+TEST(StudyTrackerTest, AddValidRecord) {
+    vector<StudyRecord> records;
+    StudyRecord newRecord = {"Alex", "2026-10-05", 10};
+
+    bool added = addRecord(records, newRecord);
+
+    EXPECT_TRUE(added);
+    EXPECT_EQ(records.size(), 1);
+}
+
+
+TEST(StudyTrackerTest, RejectDuplicateRecord) {
+    vector<StudyRecord> records = {
+        {"Diego", "2026-10-05", 8}
+    };
+
+    StudyRecord duplicate = {"Diego", "2026-10-05", 12};
+
+    bool added = addRecord(records, duplicate);
+
+    EXPECT_FALSE(added);
+    EXPECT_EQ(records.size(), 1);
+}
+
+
+TEST(StudyTrackerTest, RejectNegativeHours) {
+    vector<StudyRecord> records;
+    StudyRecord invalid = {"Marco", "2026-10-05", -5};
+
+    bool added = addRecord(records, invalid);
+
+    EXPECT_FALSE(added);
+    EXPECT_TRUE(records.empty());
+}

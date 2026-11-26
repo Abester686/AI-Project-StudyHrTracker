@@ -21,4 +21,8 @@ int findRecord(const vector<StudyRecord>& records,
                string name, string week);
 
 
+bool addRecord(vector<StudyRecord>& records,
+               StudyRecord newRecord);
+
+
 #endif
