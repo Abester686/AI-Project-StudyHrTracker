@@ -31,6 +31,17 @@ vector<StudyRecord> loadRecords(string filename) {
         if (!line.empty())
             records.push_back(parseRecord(line));
     }
-
-    return records;
+     return records;
 }
+
+int findRecord(const vector<StudyRecord>& records, string name, string week) {
+
+    for (int i = 0; i < records.size(); i++) {
+        if (records[i].name == name &&
+            records[i].week == week)
+            return i;
+    }
+
+    return -1;
+}
+

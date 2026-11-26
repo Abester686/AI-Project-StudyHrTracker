@@ -32,3 +32,27 @@ TEST(StudyTrackerTest, MissingFile) {
         runtime_error
     );
 }
+
+
+TEST(StudyTrackerTest, FindExistingRecord) {
+    vector<StudyRecord> records = {
+        {"Diego", "2026-10-05", 8},
+        {"Marco", "2026-10-05", 12}
+    };
+
+    int index = findRecord(records, "Marco", "2026-10-05");
+
+    EXPECT_EQ(index, 1);
+}
+
+
+TEST(StudyTrackerTest, FindMissingRecord) {
+    vector<StudyRecord> records = {
+        {"Diego", "2026-10-05", 8},
+        {"Marco", "2026-10-05", 12}
+    };
+
+    int index = findRecord(records, "Alex", "2026-10-05");
+
+    EXPECT_EQ(index, -1);
+}

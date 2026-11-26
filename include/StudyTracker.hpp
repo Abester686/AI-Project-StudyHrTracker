@@ -16,4 +16,9 @@ StudyRecord parseRecord(string line);
 
 vector<StudyRecord> loadRecords(string filename);
 
+
+int findRecord(const vector<StudyRecord>& records,
+               string name, string week);
+
+
 #endif
