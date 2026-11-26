@@ -21,8 +21,10 @@ int findRecord(const vector<StudyRecord>& records,
                string name, string week);
 
 
-bool addRecord(vector<StudyRecord>& records,
-               StudyRecord newRecord);
+bool addRecord(vector<StudyRecord>& records, StudyRecord newRecord);
+
+
+bool updateHours(vector<StudyRecord>& records, string name, string week, double newHours);
 
 
 #endif

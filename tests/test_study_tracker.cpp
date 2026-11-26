@@ -92,3 +92,47 @@ TEST(StudyTrackerTest, RejectNegativeHours) {
     EXPECT_FALSE(added);
     EXPECT_TRUE(records.empty());
 }
+
+
+
+TEST(StudyTrackerTest, UpdateValidHours) {
+    vector<StudyRecord> records = {
+        {"Diego", "2026-10-05", 8}
+    };
+
+    bool updated = updateHours(
+        records, "Diego", "2026-10-05", 10
+    );
+
+    EXPECT_TRUE(updated);
+    EXPECT_DOUBLE_EQ(records[0].hoursCompleted, 10.0);
+}
+
+
+TEST(StudyTrackerTest, UpdateMissingRecord) {
+    vector<StudyRecord> records = {
+        {"Diego", "2026-10-05", 8}
+    };
+
+    bool updated = updateHours(
+        records, "Alex", "2026-10-05", 10
+    );
+
+    EXPECT_FALSE(updated);
+    EXPECT_DOUBLE_EQ(records[0].hoursCompleted, 8.0);
+}
+
+
+TEST(StudyTrackerTest, UpdateNegativeHours) {
+    vector<StudyRecord> records = {
+        {"Diego", "2026-10-05", 8}
+    };
+
+    bool updated = updateHours(
+        records, "Diego", "2026-10-05", -5
+    );
+
+    EXPECT_FALSE(updated);
+    EXPECT_DOUBLE_EQ(records[0].hoursCompleted, 8.0);
+}
+

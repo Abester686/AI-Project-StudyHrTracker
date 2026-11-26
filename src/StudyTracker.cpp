@@ -58,3 +58,21 @@ bool addRecord(vector<StudyRecord>& records, StudyRecord newRecord) {
     records.push_back(newRecord);
     return true;
 }
+
+
+bool updateHours(vector<StudyRecord>& records,
+                 string name, string week,
+                 double newHours) {
+
+    if (newHours < 0)
+        return false;
+
+    int index = findRecord(records, name, week);
+
+    if (index == -1)
+        return false;
+
+    records[index].hoursCompleted = newHours;
+    return true;
+}
+
